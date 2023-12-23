@@ -33,20 +33,20 @@ module.exports = {
       },
     ],
   },
-  // devServer: {
-  //   host: "localhost",
-  //   port: 8080,
-  //   // enable HMR on the devServer
-  //   hot: true,
-  //   // fallback to root for other urls
-  //   historyApiFallback: true,
+  devServer: {
+    host: "localhost",
+    port: 3000,
+    // enable HMR on the devServer
+    hot: true,
+    // fallback to root for other urls
+    historyApiFallback: true,
 
-  //   static: {
-  //     // match the output path
-  //     directory: path.resolve(__dirname, "build"),
-  //     // match the output 'publicPath'
-  //     publicPath: "/",
-  //   },
+    static: {
+      // match the output path
+      directory: path.resolve(__dirname, "build"),
+      // match the output 'publicPath'
+      publicPath: "/",
+    },
 
   //   headers: { "Access-Control-Allow-Origin": "*" },
     /**
@@ -55,17 +55,14 @@ module.exports = {
      * routes api fetch requests from localhost:8080/api/* (webpack dev server)
      * to localhost:3000/api/* (where our Express server is running)
      */
-    // proxy: {
-    //   "/api/**": {
-    //     target: "http://localhost:3000/",
-    //     secure: false,
-    //   },
-    //   "/assets/**": {
-    //     target: "http://localhost:3000/",
-    //     secure: false,
-    //   },
-    // },
-  // },
+    proxy: {
+      "/home/**": {
+        target: "http://localhost:3000/",
+        router: () => "http://localhost:8080/",
+        secure: false,
+      }
+    },
+  },
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
     extensions: [".js", ".jsx"],

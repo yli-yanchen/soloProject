@@ -16,4 +16,4 @@ dist/
 *.zip
 
 # jest coverage
-coverage/
+# coverage/

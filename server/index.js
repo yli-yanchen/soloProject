@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded( {limit: "30mb", extended: true } ));
 app.use(cors());
 
 const CONNECTION_URL = "mongodb+srv://yliyanchen:Liyi19961013@cluster0.1oawmot.mongodb.net/?retryWrites=true&w=majority";
-const PORT  = process.env.PORT || 8080;
+const PORT  = 8080;
 
 mongoose.connect(CONNECTION_URL
     // , { useNewUrlParser: true, useUnifiedTopology: true }
@@ -62,3 +62,4 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}...`);
 });
 
+module.exports = app;
