@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded( {limit: "30mb", extended: true } ));
 app.use(cors());
 
 const CONNECTION_URL = "mongodb+srv://yliyanchen:Liyi19961013@cluster0.1oawmot.mongodb.net/?retryWrites=true&w=majority";
-const PORT  = 8080;
+const PORT  = 3000;
 
 mongoose.connect(CONNECTION_URL
     // , { useNewUrlParser: true, useUnifiedTopology: true }
@@ -31,12 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", homeRoutes);
-
+// app.use("/about", homeRoutes);
 
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
-
 
 
 /**

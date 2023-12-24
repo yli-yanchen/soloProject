@@ -10,8 +10,14 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js",
   },
+  target: 'web',
   devtool: "eval-source-map",
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      // title: 'Hot Module Replacement',
+      template: path.resolve(__dirname, "./client/index.html"),
+    }),
+  ],
   module: {
     rules: [
       {
@@ -28,14 +34,18 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/i,
+        test: /\.(css|scss)$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|jpe?g)$/,
+        type: "asset/resource",
       },
     ],
   },
   devServer: {
     host: "localhost",
-    port: 3000,
+    port: 8080,
     // enable HMR on the devServer
     hot: true,
     // fallback to root for other urls
@@ -48,23 +58,30 @@ module.exports = {
       publicPath: "/",
     },
 
-  //   headers: { "Access-Control-Allow-Origin": "*" },
+    //   headers: { "Access-Control-Allow-Origin": "*" },
     /**
      * proxy is required in order to make api calls to
      * express server while using hot-reload webpack server
      * routes api fetch requests from localhost:8080/api/* (webpack dev server)
      * to localhost:3000/api/* (where our Express server is running)
      */
+    // proxy: {
+    //   "/home/**": {
+    //     target: "http://localhost:8080/",
+    //     router: () => "http://localhost:3000/",
+    //     secure: false,
+    //   }
+    // },
     proxy: {
-      "/home/**": {
-        target: "http://localhost:3000/",
-        router: () => "http://localhost:8080/",
-        secure: false,
+      // "/": "http://localhost:3000",
+      "/": {
+        target: "HTTP://localhost:3000/",
+        secure: false
       }
     },
   },
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
     extensions: [".js", ".jsx"],
-  }
+  },
 };

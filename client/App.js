@@ -1,9 +1,11 @@
 import React from 'react';
+import MainContainer from './components/MainContainer.js'
+import "./stylesheets/styles.css";
 
 const App = () => {
     return (
         <div>
-            <h1>DEYI Consultants</h1>
+            <MainContainer />
         </div>
     );
 }
