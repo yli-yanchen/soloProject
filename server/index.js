@@ -30,8 +30,9 @@ mongoose.connect(CONNECTION_URL
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", homeRoutes);
+
 // app.use("/about", homeRoutes);
+app.use("/home", homeRoutes);
 
 
 // catch-all route handler for any requests to an unknown route

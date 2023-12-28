@@ -10,11 +10,10 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js",
   },
-  target: 'web',
+  target: "web",
   devtool: "eval-source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      // title: 'Hot Module Replacement',
       template: path.resolve(__dirname, "./client/index.html"),
     }),
   ],
@@ -38,7 +37,7 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpe?g)$/,
+        test: /\.(png|jpe?g|JPG)$/,
         type: "asset/resource",
       },
     ],
@@ -74,10 +73,10 @@ module.exports = {
     // },
     proxy: {
       // "/": "http://localhost:3000",
-      "/": {
+      "/home/**": {
         target: "HTTP://localhost:3000/",
-        secure: false
-      }
+        secure: false,
+      },
     },
   },
   resolve: {
