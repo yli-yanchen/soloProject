@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // app.use("/about", homeRoutes);
-app.use("/home", homeRoutes);
+app.use("/", homeRoutes);
 
 
 // catch-all route handler for any requests to an unknown route

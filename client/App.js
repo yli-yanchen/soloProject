@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import MainContainer from './components/MainContainer.js'
+import Navigation from './components/Navigation.js'
 import "./stylesheets/styles.css";
 
+import Signup from './subpage/Signup.js';
+import Home from "./subpage/Home.js";
+import About from './subpage/About.js';
+import Expertice from './subpage/Expertice.js';
+import Project from './subpage/Project.js';
+import Contact from './subpage/Contact.js';
 
 
 const App = () => {
     let component;
+    console.log(window.location.pathname);
     switch (window.location.pathname) {
       case "/":
         component = <Home />;
@@ -20,11 +27,11 @@ const App = () => {
         break;
 
       case "/project":
-        compoennt = <Project />;
+        component = <Project />;
         break;
 
       case "/contact":
-        compoennt = <Contact />;
+        component = <Contact />;
         break;
 
       case "/signin":
@@ -34,7 +41,7 @@ const App = () => {
 
     return (
       <div>
-        <MainContainer />
+        <Navigation />
         {component}
       </div>
     );
