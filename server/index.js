@@ -4,12 +4,6 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const homeRoutes = require("./routes/home.js");
 
-// import express from "express";
-// import bodyParser from "body-parser";
-// import mongoose from "mongoose";
-// import cors from "cors";
-// import homeRoutes from "./routes/home.js";
-
 const app = express();
 
 app.use(bodyParser.json( {limit: "30mb", extended: true } ));
@@ -19,9 +13,7 @@ app.use(cors());
 const CONNECTION_URL = "mongodb+srv://yliyanchen:Liyi19961013@cluster0.1oawmot.mongodb.net/?retryWrites=true&w=majority";
 const PORT  = 3000;
 
-mongoose.connect(CONNECTION_URL
-    // , { useNewUrlParser: true, useUnifiedTopology: true }
-    )
+mongoose.connect(CONNECTION_URL)
 .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
 .catch((error) => console.log(error.message));
 
