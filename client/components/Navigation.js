@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../../docs/assets/images/logo.png"; 
-import Home from "../subpage/Home";
 
 const Navigation = () => {
     return (
@@ -11,19 +10,19 @@ const Navigation = () => {
 
         <ul className="navbar">
           <li className="navitem">
-            <a href="/about">About</a>
+            <a href="/about">ABOUT</a>
           </li>
           <li className="navitem">
-            <a href="/expertice">Expertice</a>
+            <a href="/expertice">EXPERTICE</a>
           </li>
           <li className="navitem">
-            <a href="/project">Project</a>
+            <a href="/project">PROJECT</a>
           </li>
           <li className="navitem">
-            <a href="/contact">Contact</a>
+            <a href="/contact">CONTACT</a>
           </li>
           <li className="navitem">
-            <a href="/signin">Sign In</a>
+            <a href="/signin">SIGN IN</a>
           </li>
         </ul>
       </div>
