@@ -74,10 +74,18 @@ module.exports = {
     proxy: {
       // "/": "http://localhost:3000",
       // "/home/**": {
-      "/": {
-        target: "HTTP://localhost:3000/",
-        secure: false,
-      },
+      proxy: [
+        {
+          context: ["/", "/home", "/about", "/expertice", "/project", "contact", "signin"],
+          target: "http://localhost:3000",
+          secure: false,
+        },
+      ],
+
+      // "/**": {
+      //   target: "HTTP://localhost:3000/",
+      //   secure: false,
+      // },
     },
   },
   resolve: {

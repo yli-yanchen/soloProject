@@ -14,7 +14,7 @@ const App = () => {
     let component;
     console.log(window.location.pathname);
     switch (window.location.pathname) {
-      case "/":
+      case ("/" || "/home"):
         component = <Home />;
         break;
 
