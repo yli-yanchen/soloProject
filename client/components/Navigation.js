@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../docs/assets/images/logo.png"; 
+import { LiaSearchSolid } from "react-icons/lia";
 
 const Navigation = () => {
     return (
@@ -25,6 +26,10 @@ const Navigation = () => {
             <a href="/signin">SIGN IN</a>
           </li>
         </ul>
+
+        <div className="searchIconContainer">
+          <LiaSearchSolid className="searchIcon" />
+        </div>
       </div>
     );
 };
